@@ -34,5 +34,5 @@ app.get("/api/results",(req,res)=>{
  const db=readDB();
  res.json(Object.entries(db.sessions).map(([id,v])=>({id,...v})));
 });
-app.get("*",(req,res)=>res.sendFile(path.join(__dirname,"public","index.html")));
+app.use((req,res)=>res.sendFile(path.join(__dirname,"public","index.html")));
 app.listen(PORT,()=>console.log(`Operation Offline running on ${PORT}`));
