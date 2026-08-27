@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Operation: Offline</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+:root{
+ --bg:#12070b;--bg2:#210b12;--ink:#fff8ed;--cream:#f8e8cf;--muted:#cdb9a5;
+ --marigold:#f5ad2f;--saffron:#e86b32;--rose:#c93667;--wine:#641c35;--gold:#ffd36a;
+ --line:#ffffff1c;--glass:#241018d9;--shadow:#0009
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font:16px "DM Sans",system-ui,sans-serif;min-height:100vh;overflow-x:hidden;
+background:
+ radial-gradient(circle at 12% 15%,#d75a4d26 0,transparent 28%),
+ radial-gradient(circle at 88% 10%,#f5ad2f1f 0,transparent 25%),
+ radial-gradient(circle at 50% 100%,#9d24502b 0,transparent 35%),
+ linear-gradient(145deg,var(--bg),var(--bg2) 48%,#10060a)}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.25;
+background-image:radial-gradient(circle,#ffd36a 1px,transparent 1.5px);
+background-size:34px 34px;mask-image:linear-gradient(#000,transparent 80%)}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;
+background:linear-gradient(115deg,transparent 20%,#f5ad2f08 48%,transparent 70%)}
+.screen{min-height:100svh;display:none;align-items:center;padding:34px 18px;position:relative}
+.screen.on{display:flex}.wrap{width:min(900px,100%);margin:auto}.center{text-align:center}
+.ey{color:var(--gold);font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase}
+.title,.h2{font-family:"Playfair Display",serif}
+.title{font-size:clamp(48px,12vw,104px);line-height:.88;letter-spacing:-.055em;margin:18px 0;
+text-shadow:0 10px 50px #0008}.h2{font-size:clamp(40px,8vw,72px);line-height:.92;letter-spacing:-.04em}
+.sub{color:var(--muted);line-height:1.75;max-width:700px}
+.card{background:linear-gradient(145deg,#2a131dd9,#160b11e8);border:1px solid var(--line);
+border-radius:28px;padding:26px;box-shadow:0 28px 90px var(--shadow),inset 0 1px #ffffff0b;
+backdrop-filter:blur(18px);position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+background:linear-gradient(120deg,#f5ad2f0b,transparent 40%,#c9366709)}
+button{font:inherit}.btn,.choice{border:1px solid #ffffff24;border-radius:16px;color:var(--ink);
+cursor:pointer;transition:.25s}.btn{padding:15px 22px;margin-top:26px;font-weight:800;
+background:linear-gradient(135deg,var(--marigold),var(--saffron) 55%,var(--rose));
+box-shadow:0 12px 35px #d75a4d33}.btn:hover{transform:translateY(-3px);box-shadow:0 18px 45px #d75a4d4d}
+.choice{width:100%;padding:17px;text-align:left;background:#ffffff08}.choice:hover{
+transform:translateX(5px);border-color:#f5ad2f66;background:linear-gradient(90deg,#f5ad2f18,#c936670d)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:20px}
+.stat,.timeline{border:1px solid #ffffff18;border-radius:19px;padding:18px;background:#ffffff06}
+.stat b{display:block;font-size:1.7rem;color:var(--cream);margin-bottom:3px}
+.track{height:6px;background:#ffffff12;border-radius:99px;overflow:hidden;margin-top:14px}
+.bar{height:100%;background:linear-gradient(90deg,var(--marigold),var(--saffron),var(--rose));transition:.35s}
+.count{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:25px 0}
+.unit{min-width:76px;border:1px solid #ffffff18;border-radius:16px;padding:13px 10px;background:#ffffff06}
+.unit b{display:block;font-size:1.65rem;color:var(--gold)}.unit small{color:var(--muted)}
+.timeline{margin-top:13px;border-left:3px solid var(--marigold)}
+.timeline small{color:var(--gold);font-weight:800;letter-spacing:.13em}
+.msg{white-space:pre-wrap;line-height:1.9;color:var(--cream);font-size:1.06rem}
+.danger{margin-top:19px;color:#bda8a0;font-size:11px;cursor:pointer}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;
+background:#2a121c;border:1px solid #ffffff22;padding:12px 16px;border-radius:14px;
+transition:.2s;z-index:9;box-shadow:0 15px 50px #0008}.toast.show{opacity:1;transform:translate(-50%,0)}
+#logo{position:fixed;top:15px;left:15px;z-index:8;color:#d9b48d;font-size:10px;font-weight:800;letter-spacing:.14em}
+hr{border:0;border-top:1px solid #ffffff16}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.screen{padding:24px 14px}.card{padding:21px}.title{font-size:clamp(47px,14vw,80px)}}
+</style></head><body>
+<div id="logo" style="position:fixed;top:15px;left:15px;z-index:8;color:#8891a5;font-size:10px;font-weight:800;letter-spacing:.12em">O:F // 2026</div>
+<main>
+<section class="screen on" id="s0"><div class="wrap center"><div class="ey">✦ Secure connection established ✦</div><h1 class="title">OPERATION:<br>OFFLINE</h1><p class="sub" style="margin:auto">One year online. One Rakhi. First meeting loading...</p><div class="card" style="margin-top:25px;text-align:left;line-height:1.9">> CONNECTION: ACTIVE<br>> DURATION: ~1 YEAR<br>> IN-PERSON MODE: PENDING<br>> RAKHI: TODAY<br>> PHYSICAL DELIVERY: SATURDAY</div><button class="btn" onclick="go(1)">BEGIN OPERATION →</button></div></section>
+<section class="screen" id="s1"><div class="wrap"><div class="ey">01 / Connection history</div><h2 class="h2">365-ISH DAYS.<br>ONE SCREEN.</h2><p class="sub">We may not have met properly in person yet. That doesn't mean the sibling department has been idle.</p><div class="grid"><div class="stat"><b>~1 YEAR</b><span class="sub">of talking online</span></div><div class="stat"><b>DAILY</b><span class="sub">online presence</span></div><div class="stat"><b>∞</b><span class="sub">conversations still classified</span></div><div class="stat"><b>1</b><span class="sub">first Raksha Bandhan</span></div></div><div class="card" style="margin-top:14px;font-size:1.2rem;line-height:1.7">We've already spent a year being siblings through a screen.<br><b>Saturday is just when the screen finally comes off.</b></div><button class="btn" onclick="go(2)">RUN COMPATIBILITY TEST →</button></div></section>
+<section class="screen" id="s2"><div class="wrap"><div class="ey">02 / Predictive analysis</div><div class="track"><div class="bar" id="bar"></div></div><div id="quiz" style="margin-top:20px"></div></div></section>
+<section class="screen" id="s3"><div class="wrap"><div class="ey">03 / Results</div><h2 class="h2">SIMULATION<br>COMPLETE.</h2><div class="card center"><div class="sub" style="margin:auto">FUTURE SIBLING COMPATIBILITY</div><div id="score" style="font-size:clamp(70px,18vw,150px);font-weight:900;letter-spacing:-.08em">--%</div><span class="sub">Scientific accuracy: questionable.<br>Sibling potential: considerable.</span></div><div class="grid" id="pred"></div><button class="btn" onclick="go(4)">VIEW THE OFFLINE UPDATE →</button></div></section>
+<section class="screen" id="s4"><div class="wrap"><div class="ey">04 / System upgrade</div><h2 class="h2">SIBLING<br>V2.0</h2><p class="sub">A major update has been detected.</p><div class="card"><div class="sub">PREVIOUS BUILD</div><h3>Sibling v1.0 — ONLINE ONLY</h3><hr style="border:0;border-top:1px solid var(--line)"><div class="sub">UPGRADE AVAILABLE</div><h3>Sibling v2.0 — OFFLINE MODE</h3><div class="grid"><div class="stat">✓ Actual conversations</div><div class="stat">✓ Actual photos</div><div class="stat">✓ Actual Rakhi</div><div class="stat">✓ Actual memories</div></div></div><button class="btn" onclick="go(5)">CHECK THE TIMELINE →</button></div></section>
+<section class="screen" id="s5"><div class="wrap"><div class="ey">05 / Future archive</div><h2 class="h2">MEMORIES WE<br>HAVEN'T MADE YET.</h2><div class="timeline"><small>~1 YEAR AGO</small><h3>The online era begins.</h3></div><div class="timeline"><small>THE LAST YEAR</small><h3>Conversations. Jokes. Random nonsense. Everything through a screen.</h3></div><div class="timeline"><small>TODAY</small><h3>First Raksha Bandhan.</h3></div><div class="timeline"><small>SATURDAY</small><h3>First proper meeting.</h3></div><div class="timeline"><small>AFTER THAT</small><h3>Everything neither of us can predict yet.</h3></div><div class="card center" style="margin-top:14px;line-height:1.7">We've already got a year of stories.<br><b>Now we're finally getting the version that doesn't need Wi-Fi.</b></div><button class="btn" onclick="go(6)">OPEN MESSAGE →</button></div></section>
+<section class="screen" id="s6"><div class="wrap"><div class="ey">06 / Human override</div><h2 class="h2">Okay.<br>Enough with the simulation.</h2><div class="card"><div class="msg" id="message"></div></div><button class="btn" onclick="go(7)">CHECK DELIVERY STATUS →</button></div></section>
+<section class="screen" id="s7"><div class="wrap center"><div class="ey">07 / Delivery status</div><h2 class="h2">THE FINAL<br>DOWNLOAD</h2><div class="card"><p>Digital gift <b>✓ DELIVERED</b></p><p>Rakhi <b>✓ TODAY</b></p><p>Physical gifts <b>◌ PENDING</b></p><p>First in-person meeting <b>◌ SATURDAY</b></p><div class="count"><div class="unit"><b id="d">--</b><small>DAYS</small></div><div class="unit"><b id="h">--</b><small>HOURS</small></div><div class="unit"><b id="m">--</b><small>MINUTES</small></div><div class="unit"><b id="sec">--</b><small>SECONDS</small></div></div><h3 id="final">This was merely the advance shipment.</h3></div><button class="btn" onclick="finish()">ACTIVATE OFFLINE MODE</button><div class="danger" onclick="toast('You were specifically told not to. Excellent sibling behaviour.')">DO NOT CLICK</div></div></section>
+<section class="screen" id="s8"><div class="wrap center"><div class="ey">System update complete</div><h1 class="title">OFFLINE MODE<br>ACTIVATED.</h1><p class="sub" style="margin:auto">Happy Raksha Bandhan, <span id="fn"></span>. ❤️</p><div class="card" style="margin-top:22px;line-height:1.8">One year online was apparently only the beta version.<br><b>Saturday is the full release.</b></div></div></section>
+</main><div class="toast" id="toast"></div>
+<script>
+const CONFIG={sisterName:"[SISTER NAME]",yourName:"[YOUR NAME]",meetingDate:"2026-08-29T12:00:00+05:30",personalMessage:`Happy Raksha Bandhan, [SISTER NAME].
+
+We've already spent about a year talking online, so calling this our first Rakhi feels a little strange — in the best possible way.
+
+We've already got the conversations. Saturday, we finally get the offline version.
+
+Here's to everything we've already shared, and everything we haven't done yet.
+
+— [YOUR NAME]`};
+const qs=["Who WOULD start an argument over something ridiculously small?","Who WOULD apologise first?","Who WOULD send the most random message at 2 AM?","Who WOULD be more protective?","Who WOULD win an argument?","Who WOULD turn a normal conversation into absolute nonsense?","Who WOULD be more stubborn?","Who WOULD randomly check if the other is okay?","Who WOULD create the first completely unnecessary sibling tradition?","Who WOULD embarrass the other more once you start meeting regularly?"];
+const replies=["Interesting. The simulation has recorded your confidence.","Noted. Future-you may have a problem.","Data accepted. No judgement has been logged.","The system refuses to comment on this prediction.","Bold choice. We shall see."];
+let q=0,answers=[],sessionId=null;
+async function api(url,data){try{return await fetch(url,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)}).then(r=>r.json())}catch(e){return {error:"offline"}}}
+async function init(){let id=localStorage.getItem("operationOfflineSession");if(id)sessionId=id;else{let r=await api("/api/session",{});if(r.id){sessionId=r.id;localStorage.setItem("operationOfflineSession",r.id)}}}
+function go(n){document.querySelectorAll(".screen").forEach(x=>x.classList.remove("on"));document.getElementById("s"+n).classList.add("on");scrollTo(0,0);if(n===2)renderQ()}
+function renderQ(){if(q>=qs.length){renderResults();go(3);return}document.getElementById("bar").style.width=(q/qs.length*100)+"%";document.getElementById("quiz").innerHTML=`<div class="sub">${q+1} / ${qs.length}</div><h2 class="h2" style="font-size:clamp(30px,7vw,55px)">${qs[q]}</h2><div class="choices"><button class="choice" onclick="ans('ME')">ME</button><button class="choice" onclick="ans('YOU')">YOU</button><button class="choice" onclick="ans('CHAOS')">50/50 CHAOS</button></div>`}
+async function ans(a){answers.push(a);await api("/api/answer",{id:sessionId,index:q,answer:a});toast(replies[Math.floor(Math.random()*replies.length)]);q++;setTimeout(renderQ,250)}
+function renderResults(){let me=answers.filter(x=>x==="ME").length,you=answers.filter(x=>x==="YOU").length,chaos=answers.filter(x=>x==="CHAOS").length;let score=Math.min(100,91+Math.round((chaos*2)+Math.min(me,you)));document.getElementById("score").textContent=score+"%";api("/api/complete",{id:sessionId,score});let p=[["94%","Chance memes eventually become a primary communication system."],["89%","Chance at least one completely unnecessary argument occurs."],["97%","Chance one of you becomes the other's unofficial therapist."],["100%","Chance you'll eventually have an inside joke."],["??%","Chance one of you eventually says: “Remember when...”"]];document.getElementById("pred").innerHTML=p.map(x=>`<div class="stat"><b>${x[0]}</b><span class="sub">${x[1]}</span></div>`).join("")}
+function toast(t){let x=document.getElementById("toast");x.textContent=t;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),1200)}
+function tick(){let z=Math.max(0,new Date(CONFIG.meetingDate)-Date.now());let v=[Math.floor(z/864e5),Math.floor(z/36e5)%24,Math.floor(z/6e4)%60,Math.floor(z/1e3)%60];["d","h","m","sec"].forEach((id,i)=>document.getElementById(id).textContent=String(v[i]).padStart(2,"0"));if(!z)document.getElementById("final").textContent="OFFLINE MODE IS READY."}
+function finish(){go(8);for(let i=0;i<70;i++){let x=document.createElement("i");x.style.cssText=`position:fixed;z-index:20;left:${Math.random()*100}vw;top:-20px;width:7px;height:13px;background:hsl(${Math.random()*360} 80% 70%);animation:fall 2.5s ${Math.random()}s linear forwards`;document.body.appendChild(x);setTimeout(()=>x.remove(),3500)}}
+document.getElementById("message").textContent=CONFIG.personalMessage.replaceAll("[SISTER NAME]",CONFIG.sisterName).replaceAll("[YOUR NAME]",CONFIG.yourName);document.getElementById("fn").textContent=CONFIG.sisterName;setInterval(tick,1000);tick();init();
+</script></body></html>
