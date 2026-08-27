@@ -1,4 +1,0 @@
-<!doctype html><meta name="viewport" content="width=device-width"><title>Operation Offline — Results</title>
-<style>body{font:15px system-ui;background:#080a10;color:#eee;padding:20px}input,button{padding:10px;margin:5px;border-radius:8px}pre{white-space:pre-wrap;background:#141925;padding:15px;border-radius:12px}</style>
-<h1>Operation Offline — Results</h1><input id="key" placeholder="Admin key"><button onclick="load()">Load results</button><pre id="out">Enter the admin key.</pre>
-<script>async function load(){let k=document.getElementById("key").value,r=await fetch("/api/results?key="+encodeURIComponent(k)),d=await r.json();document.getElementById("out").textContent=JSON.stringify(d,null,2)}</script>
